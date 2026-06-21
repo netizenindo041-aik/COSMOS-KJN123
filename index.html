@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmo Play Station - Pemesanan Online</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 font-sans antialiased text-gray-100 min-h-screen p-4">
+
+    <div id="hal-konsumen" class="max-w-md mx-auto">
+        <div class="bg-slate-900 rounded-3xl p-5 shadow-2xl border border-blue-500/20 text-center">
+            
+            <h2 class="text-2xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 uppercase mb-1">
+                COSMO PLAY STATION
+            </h2>
+            <p class="text-[10px] text-blue-300/60 uppercase tracking-widest mb-4 font-bold">Digital Order Menu</p>
+            
+            <div class="grid grid-cols-2 gap-3 mb-5">
+                <div class="bg-slate-950 border border-blue-900/60 rounded-2xl p-2.5">
+                    <span class="text-[8px] text-blue-400 uppercase tracking-widest font-black block">NOMOR TV</span>
+                    <span id="display-tv" class="text-2xl font-black text-cyan-400 tracking-wider">Umum</span>
+                </div>
+                <div class="bg-slate-950 border border-blue-900/60 rounded-2xl p-2.5 flex flex-col justify-center">
+                    <span class="text-[8px] text-blue-400 uppercase tracking-widest font-black block">JAM SEKARANG</span>
+                    <span id="jam-realtime-konsumen" class="text-xs font-bold text-white mt-1">12:00:00 WIB</span>
+                </div>
+            </div>
+
+            <p class="text-left text-xs font-bold text-blue-400 uppercase tracking-wider mb-3">DAFTAR MENU TERSEDIA :</p>
+
+            <div id="wadah-menu-list" class="space-y-3 max-h-[45vh] overflow-y-auto pr-1 text-left mb-5">
+                
+                <div class="text-[11px] font-black text-cyan-400 uppercase tracking-wider bg-slate-950/80 px-2 py-1 rounded border-l-2 border-cyan-500 mb-2">🥤 MINUMAN</div>
+                
+                <div class="flex items-center justify-between p-3 bg-slate-950 rounded-xl border border-blue-900/40">
+                    <div><div class="font-bold text-white text-sm">Tea Jus</div><div class="text-xs text-blue-400">Rp 2.000</div></div>
+                    <div class="flex items-center gap-3 bg-slate-900 p-1 rounded-lg border border-blue-900"><button type="button" onclick="kurangMenu('Tea Jus')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">-</button><span id="qty-Tea-Jus" class="text-sm font-bold text-white min-w-[20px] text-center">0</span><button type="button" onclick="tambahMenu('Tea Jus')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">+</button></div>
+                </div>
+
+                <div class="flex items-center justify-between p-3 bg-slate-950 rounded-xl border border-blue-900/40">
+                    <div><div class="font-bold text-white text-sm">Marimas</div><div class="text-xs text-blue-400">Rp 2.000</div></div>
+                    <div class="flex items-center gap-3 bg-slate-900 p-1 rounded-lg border border-blue-900"><button type="button" onclick="kurangMenu('Marimas')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">-</button><span id="qty-Marimas" class="text-sm font-bold text-white min-w-[20px] text-center">0</span><button type="button" onclick="tambahMenu('Marimas')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">+</button></div>
+                </div>
+
+                <div class="flex items-center justify-between p-3 bg-slate-950 rounded-xl border border-blue-900/40">
+                    <div><div class="font-bold text-white text-sm">Es Teh</div><div class="text-xs text-blue-400">Rp 3.000</div></div>
+                    <div class="flex items-center gap-3 bg-slate-900 p-1 rounded-lg border border-blue-900"><button type="button" onclick="kurangMenu('Es Teh')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">-</button><span id="qty-Es-Teh" class="text-sm font-bold text-white min-w-[20px] text-center">0</span><button type="button" onclick="tambahMenu('Es Teh')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">+</button></div>
+                </div>
+
+                <div class="flex items-center justify-between p-3 bg-slate-950 rounded-xl border border-blue-900/40">
+                    <div><div class="font-bold text-white text-sm">Nutrisari</div><div class="text-xs text-blue-400">Rp 4.000</div></div>
+                    <div class="flex items-center gap-3 bg-slate-900 p-1 rounded-lg border border-blue-900"><button type="button" onclick="kurangMenu('Nutrisari')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">-</button><span id="qty-Nutrisari" class="text-sm font-bold text-white min-w-[20px] text-center">0</span><button type="button" onclick="tambahMenu('Nutrisari')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">+</button></div>
+                </div>
+
+                <div class="flex items-center justify-between p-3 bg-slate-950 rounded-xl border border-blue-900/40">
+                    <div><div class="font-bold text-white text-sm">Segar Dingin</div><div class="text-xs text-blue-400">Rp 4.000</div></div>
+                    <div class="flex items-center gap-3 bg-slate-900 p-1 rounded-lg border border-blue-900"><button type="button" onclick="kurangMenu('Segar Dingin')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">-</button><span id="qty-Segar-Dingin" class="text-sm font-bold text-white min-w-[20px] text-center">0</span><button type="button" onclick="tambahMenu('Segar Dingin')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">+</button></div>
+                </div>
+
+                <div class="flex items-center justify-between p-3 bg-slate-950 rounded-xl border border-blue-900/40">
+                    <div><div class="font-bold text-white text-sm">Popice</div><div class="text-xs text-blue-400">Rp 4.000</div></div>
+                    <div class="flex items-center gap-3 bg-slate-900 p-1 rounded-lg border border-blue-900"><button type="button" onclick="kurangMenu('Popice')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">-</button><span id="qty-Popice" class="text-sm font-bold text-white min-w-[20px] text-center">0</span><button type="button" onclick="tambahMenu('Popice')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">+</button></div>
+                </div>
+
+                <div class="flex items-center justify-between p-3 bg-slate-950 rounded-xl border border-blue-900/40">
+                    <div><div class="font-bold text-white text-sm">White Coffe</div><div class="text-xs text-blue-400">Rp 4.000</div></div>
+                    <div class="flex items-center gap-3 bg-slate-900 p-1 rounded-lg border border-blue-900"><button type="button" onclick="kurangMenu('White Coffe')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">-</button><span id="qty-White-Coffe" class="text-sm font-bold text-white min-w-[20px] text-center">0</span><button type="button" onclick="tambahMenu('White Coffe')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">+</button></div>
+                </div>
+
+                <div class="flex items-center justify-between p-3 bg-slate-950 rounded-xl border border-blue-900/40">
+                    <div><div class="font-bold text-white text-sm">Cappucino</div><div class="text-xs text-blue-400">Rp 5.000</div></div>
+                    <div class="flex items-center gap-3 bg-slate-900 p-1 rounded-lg border border-blue-900"><button type="button" onclick="kurangMenu('Cappucino')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">-</button><span id="qty-Cappucino" class="text-sm font-bold text-white min-w-[20px] text-center">0</span><button type="button" onclick="tambahMenu('Cappucino')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">+</button></div>
+                </div>
+
+                <div class="flex items-center justify-between p-3 bg-slate-950 rounded-xl border border-blue-900/40">
+                    <div><div class="font-bold text-white text-sm">Milo</div><div class="text-xs text-blue-400">Rp 5.000</div></div>
+                    <div class="flex items-center gap-3 bg-slate-900 p-1 rounded-lg border border-blue-900"><button type="button" onclick="kurangMenu('Milo')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">-</button><span id="qty-Milo" class="text-sm font-bold text-white min-w-[20px] text-center">0</span><button type="button" onclick="tambahMenu('Milo')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">+</button></div>
+                </div>
+
+                <div class="text-[11px] font-black text-yellow-400 uppercase tracking-wider bg-slate-950/80 px-2 py-1 rounded border-l-2 border-yellow-500 mt-4 mb-2">🍳 MAKANAN</div>
+
+                <div class="flex items-center justify-between p-3 bg-slate-950 rounded-xl border border-blue-900/40">
+                    <div><div class="font-bold text-white text-sm">Snack - Snack</div><div class="text-xs text-blue-400">Rp 3.000</div></div>
+                    <div class="flex items-center gap-3 bg-slate-900 p-1 rounded-lg border border-blue-900"><button type="button" onclick="kurangMenu('Snack - Snack')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">-</button><span id="qty-Snack---Snack" class="text-sm font-bold text-white min-w-[20px] text-center">0</span><button type="button" onclick="tambahMenu('Snack - Snack')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">+</button></div>
+                </div>
+
+                <div class="flex items-center justify-between p-3 bg-slate-950 rounded-xl border border-blue-900/40">
+                    <div><div class="font-bold text-white text-sm">Indomie Goreng</div><div class="text-xs text-blue-400">Rp 6.000</div></div>
+                    <div class="flex items-center gap-3 bg-slate-900 p-1 rounded-lg border border-blue-900"><button type="button" onclick="kurangMenu('Indomie Goreng')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">-</button><span id="qty-Indomie-Goreng" class="text-sm font-bold text-white min-w-[20px] text-center">0</span><button type="button" onclick="tambahMenu('Indomie Goreng')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">+</button></div>
+                </div>
+
+                <div class="flex items-center justify-between p-3 bg-slate-950 rounded-xl border border-blue-900/40">
+                    <div><div class="font-bold text-white text-sm">Indomie Goreng Telur</div><div class="text-xs text-blue-400">Rp 9.000</div></div>
+                    <div class="flex items-center gap-3 bg-slate-900 p-1 rounded-lg border border-blue-900"><button type="button" onclick="kurangMenu('Indomie Goreng Telur')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">-</button><span id="qty-Indomie-Goreng-Telur" class="text-sm font-bold text-white min-w-[20px] text-center">0</span><button type="button" onclick="tambahMenu('Indomie Goreng Telur')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">+</button></div>
+                </div>
+
+                <div class="text-[11px] font-black text-purple-400 uppercase tracking-wider bg-slate-950/80 px-2 py-1 rounded border-l-2 border-purple-500 mt-4 mb-2">🎮 PAKET PLAYSTATION</div>
+
+                <div class="flex items-center justify-between p-3 bg-slate-950 rounded-xl border border-blue-900/40">
+                    <div><div class="font-bold text-white text-sm">Paket 1 PS3</div><div class="text-xs text-blue-400">Rp 15.000</div></div>
+                    <div class="flex items-center gap-3 bg-slate-900 p-1 rounded-lg border border-blue-900"><button type="button" onclick="kurangMenu('Paket 1 PS3')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">-</button><span id="qty-Paket-1-PS3" class="text-sm font-bold text-white min-w-[20px] text-center">0</span><button type="button" onclick="tambahMenu('Paket 1 PS3')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">+</button></div>
+                </div>
+
+                <div class="flex items-center justify-between p-3 bg-slate-950 rounded-xl border border-blue-900/40">
+                    <div><div class="font-bold text-white text-sm">Paket Ramai PS4</div><div class="text-xs text-blue-400">Rp 30.000</div></div>
+                    <div class="flex items-center gap-3 bg-slate-900 p-1 rounded-lg border border-blue-900"><button type="button" onclick="kurangMenu('Paket Ramai PS4')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">-</button><span id="qty-Paket-Ramai-PS4" class="text-sm font-bold text-white min-w-[20px] text-center">0</span><button type="button" onclick="tambahMenu('Paket Ramai PS4')" class="w-8 h-8 rounded bg-blue-950 text-cyan-400 font-black text-lg">+</button></div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-blue-900/60 pt-4 mb-5 flex justify-between items-center px-1">
+                <span class="text-sm font-bold text-gray-400">Total Pembayaran :</span>
+                <span id="total-harga-konsumen" class="text-2xl font-black text-green-400">Rp 0</span>
+            </div>
+
+            <button type="button" onclick="kirimKeWhatsApp()" class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-black py-4 rounded-xl text-sm uppercase tracking-wider shadow-lg active:scale-95 transition-all">
+                Kirim Pesanan Ke Kasir
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const hargaMenu = {
+            "Tea Jus": 2000, "Marimas": 2000, "Es Teh": 3000, "Nutrisari": 4000, 
+            "Segar Dingin": 4000, "Popice": 4000, "White Coffe": 4000, "Cappucino": 5000, "Milo": 5000,
+            "Snack - Snack": 3000, "Indomie Goreng": 6000, "Indomie Goreng Telur": 9000,
+            "Paket 1 PS3": 15000, "Paket Ramai PS4": 30000
+        };
+
+        let keranjang = {};
+        Object.keys(hargaMenu).forEach(nama => { keranjang[nama] = 0; });
+
+        // Ambil parameter URL TV
+        const urlParams = new URLSearchParams(window.location.search);
+        const nomorTV = urlParams.get('tv') || "Umum";
+        document.getElementById('display-tv').innerText = nomorTV;
+
+        // Jam Realtime
+        function updateJam() {
+            const sekarang = new Date();
+            document.getElementById('jam-realtime-konsumen').innerText = sekarang.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) + " WIB";
+        }
+        setInterval(updateJam, 1000);
+        updateJam();
+
+        function tambahMenu(nama) {
+            keranjang[nama]++;
+            let idElement = "qty-" + nama.replace(/[^a-zA-Z0-9]/g, '-');
+            document.getElementById(idElement).innerText = keranjang[nama];
+            hitungTotal();
+        }
+
+        function kurangMenu(nama) {
+            if (keranjang[nama] > 0) {
+                keranjang[nama]--;
+                let idElement = "qty-" + nama.replace(/[^a-zA-Z0-9]/g, '-');
+                document.getElementById(idElement).innerText = keranjang[nama];
+                hitungTotal();
+            }
+        }
+
+        function hitungTotal() {
+            let total = 0;
+            Object.entries(keranjang).forEach(([nama, qty]) => {
+                total += qty * hargaMenu[nama];
+            });
+            document.getElementById('total-harga-konsumen').innerText = "Rp " + total.toLocaleString('id-ID');
+        }
+
+        function kirimKeWhatsApp() {
+            let itemDipesan = Object.entries(keranjang).filter(([_, qty]) => qty > 0);
+            if (itemDipesan.length === 0) {
+                alert("Silahkan pilih menu terlebih dahulu dengan mengklik tanda (+)!");
+                return;
+            }
+
+            let waktu = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+            let nomorWA = "+62 877-6929-5092"; // Ganti dengan nomor WA kasir asli kamu
+            
+            let teks = `*PESANAN BARU - COSMO PLAY STATION*\n`;
+            teks += `----------------------------------------\n`;
+            teks += ` Dari: *TV ${nomorTV}*\n`;
+            teks += ` Jam: ${waktu} WIB\n\n`;
+            teks += `*Daftar Pesanan:*\n`;
+            
+            let totalSemua = 0;
+            itemDipesan.forEach(([menu, qty]) => {
+                let sub = hargaMenu[menu] * qty;
+                totalSemua += sub;
+                teks += `• ${menu} (${qty}x) = Rp ${sub.toLocaleString('id-ID')}\n`;
+            });
+            teks += `\n*TOTAL: Rp ${totalSemua.toLocaleString('id-ID')}*\n`;
+            teks += `----------------------------------------`;
+
+            window.open(`https://api.whatsapp.com/send?phone=${nomorWA}&text=${encodeURIComponent(teks)}`, '_blank');
+        }
+    </script>
+</body>
+</html>
